@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <base href="./" />
+    <!-- Отключаем автомасштабирование — главная причина размытости в Electron -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>QwerUI — Qwerty 5 Pro Emulator</title>
+    <style>
+      /* Глобальный сброс */
+      *, *::before, *::after {
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        /* Убираем размытость текста */
+        text-rendering: optimizeLegibility;
+      }
+
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        /* Запрет выделения текста мышью */
+        user-select: none;
+        -webkit-user-select: none;
+        /* Убираем синее мигание при тапе на мобилках */
+        -webkit-tap-highlight-color: transparent;
+        /* Убираем перетаскивание элементов */
+        -webkit-user-drag: none;
+      }
+
+      #root {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      /* Отключаем размытость изображений */
+      img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+      }
+
+      /* Скроллбар внутри телефона */
+      ::-webkit-scrollbar {
+        width: 3px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(255,255,255,0.15);
+        border-radius: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
